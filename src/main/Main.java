@@ -10,6 +10,8 @@ public class Main extends Application {
     public void start(Stage primary) {
         primary.setTitle("Unnamed Game");
 
+        
+
         BorderPane bp = new BorderPane();
 
         primary.setScene(new Scene(bp, 500, 500));
