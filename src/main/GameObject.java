@@ -8,11 +8,11 @@ public class GameObject
     /*
     This is any object in the game. Anything that can be drawn in the game. By definition, it will be intersectable 
     */
-    private double posX;
-    private double posY;
-    private double height;
-    private double width;
-    private Image img;
+    protected double posX;
+    protected double posY;
+    protected double height;
+    protected double width;
+    protected Image img;
     /*
     Will draw the object on the game screen.
     */
@@ -27,7 +27,7 @@ public class GameObject
     /*
     This constructor bases the dimensions of the object based on the Image dimensions.
     */
-    public GameObject(double x, double y, Image img)
+    public GameObject(double x, double y, Image img, GraphicsContext pen)
     {
         posX = x;
         posY = y;

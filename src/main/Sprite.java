@@ -1,4 +1,8 @@
 package main;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
 public class Sprite extends GameObject
 {
     double velocityX;
@@ -16,8 +20,8 @@ public class Sprite extends GameObject
     }
     public void setPos(double x, double y)
     {
-        posX = x;
-        posY = y;
+        this.posX = x;
+        this.posY = y;
     }
     /*
     Update velocity based on the acceleration parameters
