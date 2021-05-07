@@ -33,7 +33,7 @@ public class GameObject
         posY = y;
         height = img.getHeight();
         width = img.getWidth();
-        img = img;
+        this.img = img;
     }
     /*
     Draws this object's image on the canvas.
@@ -43,7 +43,7 @@ public class GameObject
         pen.drawImage(img, posX, posY);
     }
     /*
-    Returns a boundary object. Used for determining insersection on canvas. 
+    Returns a boundary object. Used for determining insersection on canvas.
     */
     public Rectangle2D getBoundary()
     {
