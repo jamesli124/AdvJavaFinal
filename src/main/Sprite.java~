@@ -18,6 +18,11 @@ public class Sprite extends GameObject
         velocityX = x;
         velocityY = y;
     }
+    public void setPos(double x, double y)
+    {
+        this.posX = x;
+        this.posY = y;
+    }
     /*
     Update velocity based on the acceleration parameters
     */
