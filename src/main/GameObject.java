@@ -18,21 +18,21 @@ public class GameObject
     */
     public GameObject(double x, double y, double h, double w, Image img)
     {
-        posX = x;
-        posY = y;
-        height = h;
-        width = w;
-        img = img;
+        this.posX = x;
+        this.posY = y;
+        this.height = h;
+        this.width = w;
+        this.img = img;
     }
     /*
     This constructor bases the dimensions of the object based on the Image dimensions.
     */
     public GameObject(double x, double y, Image img)
     {
-        posX = x;
-        posY = y;
-        height = img.getHeight();
-        width = img.getWidth();
+        this.posX = x;
+        this.posY = y;
+        this.height = img.getHeight();
+        this.width = img.getWidth();
         this.img = img;
     }
     /*
@@ -49,6 +49,7 @@ public class GameObject
     {
         return new Rectangle2D(posX, posY, width, height);
     }
+
     /*
     Test if this GameObject intersects with that GameObject
     */
