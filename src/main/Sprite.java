@@ -7,9 +7,9 @@ public class Sprite extends GameObject
 {
     double velocityX;
     double velocityY;
-    public Sprite(double x, double y, Image img, GraphicsContext pen)
+    public Sprite(double x, double y, Image img)
     {
-        super(x, y, img, pen);
+        super(x, y, img);
         velocityX = 0;
         velocityY = 0;
     }
