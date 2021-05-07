@@ -1,55 +1,53 @@
+import main.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
-public abstract class GameObject 
+public class GameObject 
 {
     /*
     This is any object in the game. Anything that can be drawn in the game. By definition, it will be intersectable 
     */
-    private GraphicsContext pen;
-    private double xPos;
-    private double yPos;
+    private double posX;
+    private double posY;
     private double height;
     private double width;
     private Image img;
     /*
     Will draw the object on the game screen.
     */
-    public GameObject(double x, double y, double h, double w, Image img, GraphicsContext pen)
+    public GameObject(double x, double y, double h, double w, Image img)
     {
-        xPos = x;
-        yPos = y;
+        posX = x;
+        posY = y;
         height = h;
         width = w;
-        pen = pen;
         img = img;
     }
     /*
     This constructor bases the dimensions of the object based on the Image dimensions.
     */
-    public GameObject(double x, double y, Image img, GraphicsContext pen)
+    public GameObject(double x, double y, Image img)
     {
-        xPos = x;
-        yPos = y;
+        posX = x;
+        posY = y;
         height = img.getHeight();
         width = img.getWidth();
-        pen = pen;
         img = img;
     }
     /*
     Draws this object's image on the canvas.
     */
-    public void render()
+    public void render(GraphicsContext pen)
     {
-        pen.drawImage(img, xPos, yPos);
+        pen.drawImage(img, posX, posY);
     }
     /*
     Returns a boundary object. Used for determining insersection on canvas. 
     */
     public Rectangle2D getBoundary()
     {
-        return new Rectangle2D(xPos, yPos, width, height);
+        return new Rectangle2D(posX, posY, width, height);
     }
     /*
     Test if this GameObject intersects with that GameObject
