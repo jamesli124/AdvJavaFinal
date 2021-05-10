@@ -3,7 +3,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
-public class GameObject 
+public class GameObject implements Renderable
 {
     /*
     This is any object in the game. Anything that can be drawn in the game. By definition, it will be intersectable 
@@ -55,6 +55,14 @@ public class GameObject
     public boolean intersects(GameObject that)
     {
         if (this.getBoundary().intersects(that.getBoundary()))
+        {
+            return true;
+        }
+        return false;
+    }
+    public boolean intersects(Rectangle2D that)
+    {
+        if (this.getBoundary().intersects(that))
         {
             return true;
         }
