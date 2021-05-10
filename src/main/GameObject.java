@@ -1,4 +1,5 @@
 package main;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
@@ -81,6 +82,22 @@ public class GameObject implements Renderable
     {
         this.setX(x);
         this.setY(y);
+    }
+    public Point2D getTopRight()
+    {
+        return new Point2D(this.posX + this.width, this.posY);
+    }
+    public Point2D getTopLeft()
+    {
+        return new Point2D(this.posX, this.posY);
+    }
+    public Point2D getBottomLeft()
+    {
+        return new Point2D(this.posX, this.posY + this.height);
+    }
+    public Point2D getBottomRight()
+    {
+        return new Point2D(this.posX + this.width, this.posY + this.height);
     }
     public static void main(String[] args)
     {

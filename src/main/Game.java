@@ -9,10 +9,12 @@ public class Game {
     This class manages the game state, including the ArrayLists that need to be drawn
      */
     private ArrayList<GameObject> objects;
+    private ArrayList<Sprite> sprites;
     private double cameraX;
     private double cameraY;
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
+    public double GRAVITY = 10;
 
     public Game()
     {
@@ -32,6 +34,10 @@ public class Game {
     {
         return new Rectangle2D(cameraX, cameraY, CAMERA_WIDTH, CAMERA_HEIGHT);
     }
+    /*
+    Detects what GameObjects are in the camera frame and makes a list of those.
+    This will be drawn in the main game loop.
+     */
     public ArrayList<Renderable> getRenderList()
     {
         ArrayList<Renderable> renderList = new ArrayList<Renderable>();
@@ -45,6 +51,21 @@ public class Game {
         }
         return renderList;
 
+    }
+    public void updateSprites(double deltat)
+    {
+        for(Sprite sprite : sprites)
+        {
+            sprite.updatePos(deltat);
+            sprite.updateVelocity(0, GRAVITY, deltat);
+            for(GameObject obj : objects)
+            {
+                if(sprite.intersects(obj))
+                {
+                    sprite.doCollision(obj);
+                }
+            }
+        }
     }
 
 }
