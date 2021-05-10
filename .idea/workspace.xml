@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Renderable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameObject.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added Game class for logic. Added Renderable interface." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,50 +199,35 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Game class for logic. Added Renderable interface.">
+      <created>1620669656031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620669656031</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620150529026">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620150529026" />
-    <state x="1106" y="265" key="FileChooserDialogImpl" timestamp="1620150232817">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1106" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620150232817" />
-    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1620153899444">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1620153899443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1620153899443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1620153899444">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state x="880" y="98" key="SettingsEditor" timestamp="1620150238034">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620150238034" />
-    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1620415305286">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620415305286" />
+    <MESSAGE value="Added Game class for logic. Added Renderable interface." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Game class for logic. Added Renderable interface." />
   </component>
 </project>
