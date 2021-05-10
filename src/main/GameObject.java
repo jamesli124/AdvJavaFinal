@@ -18,22 +18,22 @@ public class GameObject implements Renderable
     */
     public GameObject(double x, double y, double h, double w, Image img)
     {
-        posX = x;
-        posY = y;
-        height = h;
-        width = w;
-        img = img;
+        this.posX = x;
+        this.posY = y;
+        this.height = h;
+        this.width = w;
+        this.img = img;
     }
     /*
     This constructor bases the dimensions of the object based on the Image dimensions.
     */
     public GameObject(double x, double y, Image img)
     {
-        posX = x;
-        posY = y;
-        height = img.getHeight();
-        width = img.getWidth();
-        img = img;
+        this.posX = x;
+        this.posY = y;
+        this.height = img.getHeight();
+        this.width = img.getWidth();
+        this.img = img;
     }
     /*
     Draws this object's image on the canvas.
@@ -43,12 +43,13 @@ public class GameObject implements Renderable
         pen.drawImage(img, posX, posY);
     }
     /*
-    Returns a boundary object. Used for determining insersection on canvas. 
+    Returns a boundary object. Used for determining insersection on canvas.
     */
     public Rectangle2D getBoundary()
     {
         return new Rectangle2D(posX, posY, width, height);
     }
+
     /*
     Test if this GameObject intersects with that GameObject
     */
