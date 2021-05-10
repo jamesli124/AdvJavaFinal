@@ -1,7 +1,12 @@
 package main;
 
 import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class Game {
@@ -21,6 +26,39 @@ public class Game {
         objects = new ArrayList<GameObject>();
         cameraX = 0;
         cameraY = 0;
+    }
+    public void readLevelFromFile(String levelString)
+    {
+        objects = new ArrayList<GameObject>();
+        try (BufferedReader br = Files.newBufferedReader(Path.of(levelString)))
+        {
+            String line = "";
+            while((line = br.readLine()) != null)
+            {
+                loadObject(line);
+            }
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    private void loadObject(String info)
+    {
+        //Split line according to white space
+        String[] params = info.split("\\s");
+        String objType = params[0];
+        /*
+        Each line of the file specifies a game object. Parameter 0 is
+        type of object; parameter 2 and 3 are x and y; parameter 4 is image url
+         */
+        if (objType.equals("GameObject"))
+        {
+            objects.add(
+                    new GameObject( Double.parseDouble(params[1]), Double.parseDouble(params[2]), new Image(params[3]))
+
+                    );
+        }
     }
     public void setCameraX(double x)
     {
