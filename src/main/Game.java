@@ -20,6 +20,7 @@ public class Game {
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
     public double GRAVITY = 10;
+    private Player player;
 
     public void readLevelFromFile(String levelString)
     {
@@ -44,16 +45,35 @@ public class Game {
         String objType = params[0];
         /*
         Each line of the file specifies a game object. Parameter 0 is
-        type of object; parameter 2 and 3 are x and y; parameter 4 is image url
+        type of object; parameter 1 and 2 are x and y; parameter 3 and 4 are height and width
+        parameter 5 is the String representing location of the location of the Image
          */
         if (objType.equals("GameObject"))
         {
             objects.add(
-                    new GameObject( Double.parseDouble(params[1]), Double.parseDouble(params[2]), new Image(params[3]))
+                    new GameObject( Double.parseDouble(params[1]), Double.parseDouble(params[2]),
+                            Double.parseDouble(params[3]), Double.parseDouble(params[4]),
+                            getImageStringOf(params[5]))
 
                     );
         }
+        else if (objType.equals("Player"))
+        {
+            player = new Player( Double.parseDouble(params[1]), Double.parseDouble(params[2]),
+                    Double.parseDouble(params[3]), Double.parseDouble(params[4]),
+                    getImageStringOf(params[5]));
+            objects.add(player);
+            sprites.add(player);
+
+
+        }
     }
+
+    private String getImageStringOf(String s)
+    {
+        return("/resources" + s);
+    }
+
     public void setCameraX(double x)
     {
         cameraX = x;

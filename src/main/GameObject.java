@@ -31,6 +31,14 @@ public class GameObject implements Renderable
         this.width = w;
         this.img = img;
     }
+    public GameObject(double x, double y, double h, double w, String imgLoc)
+    {
+        this.posX = x;
+        this.posY = y;
+        this.height = h;
+        this.width = w;
+        this.img = new Image(imgLoc, height, width, true, true);
+    }
     /**
      * Class constructor that bases the dimensions of the object based on the Image dimensions.
      *

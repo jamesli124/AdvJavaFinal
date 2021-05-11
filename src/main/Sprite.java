@@ -23,6 +23,12 @@ public class Sprite extends GameObject
         velocityX = 0;
         velocityY = 0;
     }
+    public Sprite(double x, double y, double h, double w, String imgString)
+    {
+        super(x, y, h, w, imgString);
+        velocityX = 0;
+        velocityY = 0;
+    }
 
     /**
      * Set velocity of sprite.
