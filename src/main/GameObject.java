@@ -13,8 +13,14 @@ public class GameObject
     protected double height;
     protected double width;
     protected Image img;
-    /*
-    Will draw the object on the game screen.
+    /**
+     * Class constructor.
+     *
+     * @param x     horizontal location
+     * @param y     vertical location
+     * @param h     height
+     * @param w     width
+     * @param img   image to be displayed.
     */
     public GameObject(double x, double y, double h, double w, Image img)
     {
@@ -24,8 +30,12 @@ public class GameObject
         this.width = w;
         this.img = img;
     }
-    /*
-    This constructor bases the dimensions of the object based on the Image dimensions.
+    /**
+     * Class constructor that bases the dimensions of the object based on the Image dimensions.
+     *
+     * @param x     horizontal location
+     * @param y     vertical location
+     * @param img   image to be displayed.
     */
     public GameObject(double x, double y, Image img)
     {
@@ -35,23 +45,30 @@ public class GameObject
         this.width = img.getWidth();
         this.img = img;
     }
-    /*
-    Draws this object's image on the canvas.
+    /**
+     * Draws this object's image on the canvas.
+     *
+     * @param pen   pen for the canvas to be drawn on.
     */
     public void render(GraphicsContext pen)
     {
         pen.drawImage(img, posX, posY);
     }
-    /*
-    Returns a boundary object. Used for determining insersection on canvas.
+    /**
+     * Returns a boundary object. Used for determining intersection on canvas.
+     *
+     * @return      a Rectangle2D representing the bounding box.
     */
     public Rectangle2D getBoundary()
     {
         return new Rectangle2D(posX, posY, width, height);
     }
 
-    /*
-    Test if this GameObject intersects with that GameObject
+    /**
+     * Test if this GameObject intersects with that GameObject
+     *
+     * @param that  the GameObject to check for intersection with.
+     * @return      boolean representing whether or not there is an intersection.
     */
     public boolean intersects(GameObject that)
     {
@@ -61,19 +78,44 @@ public class GameObject
         }
         return false;
     }
+
+    /**
+     * Sets the x position.
+     *
+     * @param x     double to set x to
+     */
     public void setX(double x)
     {
         this.posX = x;
     }
+
+    /**
+     * Sets the y position.
+     *
+     * @param y     double to set y to
+     */
     public void setY(double y)
     {
         this.posY = y;
     }
+
+    /**
+     * Sets position of the GameObject
+     *
+     * @param x     double to set x to
+     * @param y     double to set y to
+     */
     public void setPos(double x, double y)
     {
         this.setX(x);
         this.setY(y);
     }
+
+    /**
+     * The main method to test this class.
+     *
+     * @param args  String array of command line arguments
+     */
     public static void main(String[] args)
     {
         System.out.println("Running tests for GameObject!");
