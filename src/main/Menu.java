@@ -96,6 +96,7 @@ public class Menu extends Application
       */
       address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
       Button play = new Button("Play");
+      play.setOnAction(e -> startGame(primary));
       Button options = new Button("Options");
       Button complaints = new Button("Complaints?");
       Button back = new Button("<-- Back");
@@ -131,6 +132,12 @@ public class Menu extends Application
     public void stop()
     {
 
+    }
+    private void startGame(Stage primary)
+    {
+        primary.setScene(makeGameScene());
+        GameClock gameClock = new GameClock();
+        gameClock.start();
     }
     private Scene makeGameScene()
     {
