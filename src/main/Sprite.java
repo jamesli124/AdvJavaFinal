@@ -56,5 +56,21 @@ public class Sprite extends GameObject
         this.posX += velocityX * deltat;
         this.posY += velocityY * deltat;
     }
+    /*
+    Action taken when collision occurs
+     */
+    public void doCollision(GameObject that)
+    {
+        //If right or left edge of sprite collides, make x velocity 0
+        if(that.getBoundary().getMinX() < this.getBoundary().getMaxX() || that.getBoundary().getMaxX() < this.getBoundary().getMinX())
+        {
+            this.setVelocity(0, velocityY);
+        }
+        //If top or bottom collides, set y velocity to 0
+        if(that.getBoundary().getMinY() > (this.getBoundary().getMaxY()) || that.getBoundary().getMaxY() < this.getBoundary().getMinY())
+        {
+            this.setVelocity(velocityX, 0);
+        }
+    }
 
 }
