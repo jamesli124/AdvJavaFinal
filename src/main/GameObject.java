@@ -80,7 +80,12 @@ public class GameObject implements Renderable
         return false;
     }
 
-
+    /**
+     * Test if this GameObject intersects with that Rectangle2D
+     *
+     * @param that  the Rectangle2D to check for intersection with.
+     * @return      boolean representing whether or not there is an intersection.
+     */
     public boolean intersects(Rectangle2D that)
     {
         if (this.getBoundary().intersects(that))
@@ -122,19 +127,41 @@ public class GameObject implements Renderable
         this.setY(y);
     }
 
-    
+    /**
+     * Returns location of top right corner
+     *
+     * @return      Point2D containing location of top right corner of GameObject
+     */
     public Point2D getTopRight()
     {
         return new Point2D(this.posX + this.width, this.posY);
     }
+
+    /**
+     * Returns location of top left corner
+     *
+     * @return      Point2D containing location of top left corner of GameObject
+     */
     public Point2D getTopLeft()
     {
         return new Point2D(this.posX, this.posY);
     }
+
+    /**
+     * Returns location of bottom left corner
+     *
+     * @return      Point2D containing location of bottom left corner of GameObject
+     */
     public Point2D getBottomLeft()
     {
         return new Point2D(this.posX, this.posY + this.height);
     }
+
+    /**
+     * Returns location of bottom right corner
+     *
+     * @return      Point2D containing location of top right corner of GameObject
+     */
     public Point2D getBottomRight()
     {
         return new Point2D(this.posX + this.width, this.posY + this.height);
