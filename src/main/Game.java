@@ -13,20 +13,14 @@ public class Game {
     /*
     This class manages the game state, including the ArrayLists that need to be drawn
      */
-    private ArrayList<GameObject> objects;
+    private ArrayList<GameObject> objects = new ArrayList<GameObject>();
     private ArrayList<Sprite> sprites;
-    private double cameraX;
-    private double cameraY;
+    private double cameraX = 0;
+    private double cameraY = 0;
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
     public double GRAVITY = 10;
 
-    public Game()
-    {
-        objects = new ArrayList<GameObject>();
-        cameraX = 0;
-        cameraY = 0;
-    }
     public void readLevelFromFile(String levelString)
     {
         objects = new ArrayList<GameObject>();
@@ -104,6 +98,10 @@ public class Game {
                 }
             }
         }
+    }
+    public void handleKeyboardInput(ArrayList<String> input)
+    {
+
     }
 
 }

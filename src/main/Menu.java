@@ -1,5 +1,8 @@
+package main;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -25,13 +28,22 @@ import javafx.scene.text.Font;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
+import java.util.ArrayList;
+
 public class Menu extends Application
 {
+    public int SCREEN_WIDTH = 600;
+    public int SCREEN_HEIGHT = 400;
+    private Canvas gameScreen;
+    private Game game;
+    private GraphicsContext gameGC;
+    private ArrayList<String> input;
     public Menu()
     {
-
+        gameScreen = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
+        game = new Game();
+        gameGC = gameScreen.getGraphicsContext2D();
     }
-
     @Override
     public void init()
     {
@@ -120,4 +132,72 @@ public class Menu extends Application
     {
 
     }
+    private Scene makeGameScene()
+    {
+        BorderPane bpGame = new BorderPane();
+
+        bpGame.setCenter(gameScreen);
+
+        Scene gameScene = new Scene(bpGame);
+
+        // Initialize input list
+        input = new ArrayList<>();
+
+        gameScene.setOnKeyPressed(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        if ( !input.contains(code) )
+                            input.add( code );
+                    }
+                });
+
+        gameScene.setOnKeyReleased(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        input.remove( code );
+                    }
+                });
+
+        return gameScene;
+    }
+    /*
+    Inner class GameClock updates the game with AnimationTimer functionality
+     */
+    class GameClock extends AnimationTimer
+    {
+        private long lastNanoTime = System.currentTimeMillis() * 1000;
+        /*
+        Runs every time frame is loaded in JavaFX program.
+         */
+        @Override
+        public void handle(long currentNanoTime)
+        {
+            // calculate time since last update.
+            double elapsedTime = (currentNanoTime - lastNanoTime) / 1000000000.0;
+            lastNanoTime = currentNanoTime;
+
+            // Pass input to Game.java and let it update game stuff
+
+            // Game logic
+
+            game.handleKeyboardInput(input);
+
+            // Render all images
+            for(Renderable item : game.getRenderList())
+            {
+                item.render(gameGC);
+            }
+
+        }
+
+
+    }
 }
+
+

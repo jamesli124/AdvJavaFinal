@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added Game class for logic. Added Renderable interface.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_21__1_00_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_21__1_00_PM__Default_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_21__2_01_PM__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_21__2_01_PM__Default_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/GameObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Sprite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +60,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,6 +101,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Player">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -250,50 +254,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620150529026">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620150529026" />
-    <state x="1106" y="265" key="FileChooserDialogImpl" timestamp="1620150232817">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1106" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620150232817" />
-    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1620153899444">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1620153899443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1620153899443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1620153899444">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state x="880" y="98" key="SettingsEditor" timestamp="1620150238034">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620150238034" />
-    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1620751961290">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620751961290" />
   </component>
 </project>
