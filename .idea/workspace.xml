@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added Game class for logic. Added Renderable interface.">
-      <change beforePath="$PROJECT_DIR$/Menu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Renderable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Renderable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,12 +96,18 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/javafx-sdk-15.0.1/lib" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Player">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aweso\Documents\GitHub\AdvJavaFinal\src\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -126,7 +134,7 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AdvJavaFinal" />
       <extension name="coverage">
         <pattern>
@@ -191,6 +199,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Player" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Player" />
@@ -263,34 +275,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="72" y="186" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620752543183" />
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620150529026">
+    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620752947055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620150529026" />
+    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620752947055" />
+    <state x="1103" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1620752945344">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620752945344" />
     <state x="1106" y="265" key="FileChooserDialogImpl" timestamp="1620150232817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1106" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620150232817" />
-    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1620153899444">
+    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1620752949204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1620153899443">
+    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620752949204" />
+    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1620752949204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1620153899443">
+    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620752949204" />
+    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1620752949203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899443" />
-    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1620153899444">
+    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620752949203" />
+    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1620752949204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620153899444" />
-    <state x="880" y="98" key="SettingsEditor" timestamp="1620150238034">
+    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620752949204" />
+    <state x="880" y="98" key="SettingsEditor" timestamp="1620752920436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620150238034" />
+    <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620752920436" />
     <state x="1148" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1620751961290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
