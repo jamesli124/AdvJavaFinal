@@ -80,26 +80,28 @@ public class Main extends Application
         BorderPane bpMain = new BorderPane();
         bpMain.setPrefSize(screenWidth / 4, screenHeight / 4);
 
+        Button play = new Button("Play");
+        Button options = new Button("Options");
+        Button complaints = new Button("Complaints?");
+        Button back = new Button("<-- Back");
+        Button complaintsBack = new Button("<-- Back");
+
         // Address label for center of menu
         Label address = new Label();
         address.setFont(new Font ("Comic Sans MS", 24));
         // address.setEditable(false);
         //address.setPrefWidth(screenWidth * .6);
-        address.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        //address.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         /*
         address.setStyle("-fx-text-fill: white");
         address.setStyle("-fx-opacity: 1");
         address.setStyle("-fx-background-color: black");
         */
         address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
-        Button play = new Button("Play");
-        Button options = new Button("Options");
-        Button complaints = new Button("Complaints?");
-        Button back = new Button("<-- Back");
 
         VBox complaintsVBox = new VBox();
         complaintsVBox.setPadding(new Insets(50));
-        complaintsVBox.getChildren().addAll(address, back);
+        complaintsVBox.getChildren().addAll(address, complaintsBack);
         complaints.setOnAction(e -> {
             bpMain.setCenter(complaintsVBox);
         });
@@ -109,14 +111,20 @@ public class Main extends Application
         VBox menuItems = new VBox();
         menuItems.getChildren().addAll(play, options, complaints, quit);
 
-        back.setOnAction(e -> {
-            bpMain.setLeft(null);
+        back.setOnAction(e ->
+        {
             bpMain.setCenter(menuItems);
         });
 
+        complaintsBack.setOnAction(e ->
+        {
+            bpMain.setCenter(menuItems);
+        });
+
+
         // options menu for center of menu
         //volume
-        Label volumeDisplay = new Label("100");
+        Label volumeDisplay = new Label("Volume: 100");
         volumeDisplay.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         Slider volumeSlider = new Slider(0, 100, 100);
         volumeSlider.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
