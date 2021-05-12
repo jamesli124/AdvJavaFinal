@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_5_12_21,_3_43_PM_[Default]" date="1620848608705" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_21,_3_43_PM_[Default]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 5/12/21, 3:43 PM [Default]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AdvJavaFinal/main/Game.class" />
+    <option name="AFTER_PATH" value="out/production/AdvJavaFinal/main/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_21,_3_43_PM_[Default]/Game.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AdvJavaFinal/main/Sprite.class" />
+    <option name="AFTER_PATH" value="out/production/AdvJavaFinal/main/Sprite.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_12_21,_3_43_PM_[Default]/Sprite.class" />
+  </binary>
+</changelist>
