@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Connected game logic and canvas. Level loader working, first grass loaded in.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AdvJavaFinal/main/Game.class" afterDir="false" />
@@ -11,6 +12,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/levels/level1.level" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/levels/level1.level" afterDir="false" />
+=======
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added Game class for logic. Added Renderable interface.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AdvJavaFinal/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +145,11 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
+<<<<<<< Updated upstream
       <option name="MAIN_CLASS_NAME" value="main.Menu" />
+=======
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+>>>>>>> Stashed changes
       <module name="AdvJavaFinal" />
       <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/javafx-sdk-15.0.1/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
@@ -301,10 +312,55 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+<<<<<<< Updated upstream
     <MESSAGE value="Added unfinished gameScene and AnimationTimer." />
     <MESSAGE value="Linked gameScene to play button in menu." />
     <MESSAGE value="Updated Player and parent classes to use Image URL in constructor." />
     <MESSAGE value="Connected game logic and canvas. Level loader working, first grass loaded in." />
     <option name="LAST_COMMIT_MESSAGE" value="Connected game logic and canvas. Level loader working, first grass loaded in." />
+=======
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="72" y="186" key="#Project_Structure" timestamp="1620752543183">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="72" y="186" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1620752543183" />
+    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620756169165">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="828" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620756169165" />
+    <state x="1103" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1620756165771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620756165771" />
+    <state x="1106" y="265" key="FileChooserDialogImpl" timestamp="1620150232817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1106" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620150232817" />
+    <state width="914" height="281" key="GridCell.Tab.0.bottom" timestamp="1620756724399">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620756724399" />
+    <state width="914" height="281" key="GridCell.Tab.0.center" timestamp="1620756724398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620756724398" />
+    <state width="914" height="281" key="GridCell.Tab.0.left" timestamp="1620756724398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620756724398" />
+    <state width="914" height="281" key="GridCell.Tab.0.right" timestamp="1620756724398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620756724398" />
+    <state x="880" y="98" key="SettingsEditor" timestamp="1620752920436">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="880" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620752920436" />
+    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1620751961290">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1148" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620751961290" />
+>>>>>>> Stashed changes
   </component>
 </project>
