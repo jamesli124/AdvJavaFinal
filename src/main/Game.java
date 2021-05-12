@@ -13,14 +13,22 @@ public class Game {
     /*
     This class manages the game state, including the ArrayLists that need to be drawn
      */
-    private ArrayList<GameObject> objects = new ArrayList<GameObject>();
+    private ArrayList<GameObject> objects;
     private ArrayList<Sprite> sprites;
-    private double cameraX = 0;
-    private double cameraY = 0;
+    private double cameraX;
+    private double cameraY;
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
     public double GRAVITY = 10;
     private Player player;
+
+    public Game()
+    {
+        objects = new ArrayList<GameObject>();
+        sprites = new ArrayList<>();
+        cameraX = 0;
+        cameraY = 0;
+    }
 
     public void readLevelFromFile(String levelString)
     {
@@ -71,7 +79,7 @@ public class Game {
 
     private String getImageStringOf(String s)
     {
-        return("/resources" + s);
+        return("resources/" + s + ".png");
     }
 
     public void setCameraX(double x)

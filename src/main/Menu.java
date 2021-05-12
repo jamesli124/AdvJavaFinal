@@ -137,6 +137,7 @@ public class Menu extends Application
     {
         primary.setScene(makeGameScene());
         GameClock gameClock = new GameClock();
+        game.readLevelFromFile("/Users/alecnipp/Documents/AdvJava/AdvJavaFinal/src/resources/levels/level1.level");
         gameClock.start();
     }
     private Scene makeGameScene()

@@ -19,7 +19,7 @@ public class Sprite extends GameObject
      */
     public Sprite(double x, double y, double h, double w, Image img)
     {
-        super(x, y, img);
+        super(x, y, h, w, img);
         velocityX = 0;
         velocityY = 0;
     }
