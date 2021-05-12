@@ -193,10 +193,11 @@ public class Menu extends Application
             // Pass input to Game.java and let it update game stuff
 
             // Game logic
-
             game.handleKeyboardInput(input);
+            game.updateSprites(elapsedTime);
 
             // Render all images
+            gameGC.clearRect(0, 0, SCREEN_HEIGHT, SCREEN_WIDTH);
             for(Renderable item : game.getRenderList())
             {
                 item.render(gameGC);

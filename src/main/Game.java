@@ -58,6 +58,7 @@ public class Game {
          */
         if (objType.equals("GameObject"))
         {
+            System.out.println("Loading object!");
             objects.add(
                     new GameObject( Double.parseDouble(params[1]), Double.parseDouble(params[2]),
                             Double.parseDouble(params[3]), Double.parseDouble(params[4]),
@@ -117,18 +118,40 @@ public class Game {
         for(Sprite sprite : sprites)
         {
             sprite.updatePos(deltat);
-            sprite.updateVelocity(0, GRAVITY, deltat);
+            //sprite.updateVelocity(0, GRAVITY, deltat);
             for(GameObject obj : objects)
             {
-                if(sprite.intersects(obj))
-                {
-                    sprite.doCollision(obj);
+                if(sprite != obj) {
+                    if (sprite.intersects(obj)) {
+                        sprite.doCollision(obj);
+                    }
                 }
             }
         }
     }
+    /*
+    Will check if this sprite is on the ground.
+     */
+    private boolean isOnGround(Sprite entity)
+    {
+        return true;
+    }
     public void handleKeyboardInput(ArrayList<String> input)
     {
+        // Set x velocity to 0, but leave y velocity untouched.
+        player.setVelocity(0, player.getVelocity()[1]);
+        if(input.contains("UP") && isOnGround(player))
+        {
+            player.jump();
+        }
+        if(input.contains("RIGHT"))
+        {
+            player.moveRight();
+        }
+        if(input.contains("LEFT"))
+        {
+            player.moveLeft();
+        }
 
     }
 

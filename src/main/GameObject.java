@@ -37,7 +37,7 @@ public class GameObject implements Renderable
         this.posY = y;
         this.height = h;
         this.width = w;
-        this.img = new Image(imgLoc, height, width, true, true);
+        this.img = new Image(imgLoc, height, width, false, false);
     }
     /**
      * Class constructor that bases the dimensions of the object based on the Image dimensions.
@@ -83,6 +83,7 @@ public class GameObject implements Renderable
     {
         if (this.getBoundary().intersects(that.getBoundary()))
         {
+            System.out.printf("%s intersects %s \n", this.getBoundary(), that.getBoundary());
             return true;
         }
         return false;

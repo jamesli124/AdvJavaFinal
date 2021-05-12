@@ -42,6 +42,11 @@ public class Sprite extends GameObject
         velocityY = y;
     }
 
+    public double[] getVelocity()
+    {
+        return new double[] {velocityX, velocityY};
+    }
+
     /**
      * Update velocity based on the acceleration parameters.
      * 
