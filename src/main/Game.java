@@ -19,7 +19,7 @@ public class Game {
     private double cameraY;
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
-    public double GRAVITY = 10;
+    public double GRAVITY = 40;
     private Player player;
 
     public Game()
@@ -117,8 +117,6 @@ public class Game {
     {
         for(Sprite sprite : sprites)
         {
-            sprite.updatePos(deltat);
-            //sprite.updateVelocity(0, GRAVITY, deltat);
             for(GameObject obj : objects)
             {
                 if(sprite != obj) {
@@ -127,6 +125,8 @@ public class Game {
                     }
                 }
             }
+            sprite.updatePos(deltat);
+            sprite.updateVelocity(0, GRAVITY, deltat);
         }
     }
     /*

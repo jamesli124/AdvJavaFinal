@@ -3,10 +3,13 @@ package main;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
+
 public class Sprite extends GameObject
 {
     double velocityX;
     double velocityY;
+    boolean onGround;
 
     /**
      * Class constructor
@@ -28,6 +31,7 @@ public class Sprite extends GameObject
         super(x, y, h, w, imgString);
         velocityX = 0;
         velocityY = 0;
+        onGround = false;
     }
 
     /**
@@ -67,21 +71,72 @@ public class Sprite extends GameObject
         this.posX += velocityX * deltat;
         this.posY += velocityY * deltat;
     }
+    public ArrayList<Direction> getCollisionDirection(GameObject that)
+    {
+        //List to keep track of the edges of the sprite in contact with objects.
+        // It can be in a corner, where bottom and right collide, for instance
+        ArrayList<Direction> edges = new ArrayList<>();
+        if(this.getMaxX() > that.getMinX() && this.getMinX() < that.getMinX())
+        {
+            edges.add(Direction.RIGHT);
+        }
+        else if(this.getMinX() < that.getMaxX() && this.getMaxX() > that.getMaxX())
+        {
+            edges.add(Direction.LEFT);
+        }
+        if(this.getMaxY() > that.getMinY() && this.getMinY() < that.getMinY())
+        {
+            edges.add(Direction.BOTTOM);
+        }
+        else if(this.getMinY() < that.getMaxY() && this.getMaxY() > that.getMinY())
+        {
+            edges.add(Direction.TOP);
+        }
+        return edges;
+    }
     /*
     Action taken when collision occurs
      */
     public void doCollision(GameObject that)
     {
-        //If right or left edge of sprite collides, make x velocity 0
-        if(that.getBoundary().getMinX() < this.getBoundary().getMaxX() || that.getBoundary().getMaxX() < this.getBoundary().getMinX())
+        ArrayList<Direction> edges = getCollisionDirection(that);
+        System.out.printf("Colliding on %s edge\n", edges);
+        if(edges.contains(Direction.TOP))
         {
-            this.setVelocity(0, velocityY);
+            if(velocityY < 0)
+            {
+                velocityY = 0;
+            }
         }
-        //If top or bottom collides, set y velocity to 0
-        if(that.getBoundary().getMinY() > (this.getBoundary().getMaxY()) || that.getBoundary().getMaxY() < this.getBoundary().getMinY())
+        if (edges.contains(Direction.BOTTOM))
         {
-            this.setVelocity(velocityX, 0);
+            onGround = true;
+            if(velocityY > 0)
+            {
+                velocityY = 0;
+            }
         }
+        if(edges.contains(Direction.RIGHT))
+        {
+            if(velocityX > 0)
+            {
+                velocityX = 0;
+            }
+        }
+        if(edges.contains(Direction.LEFT))
+        {
+            if(velocityX < 0)
+            {
+                velocityX = 0;
+            }
+        }
+    }
+    enum Direction
+    {
+        LEFT,
+        RIGHT,
+        TOP,
+        BOTTOM
     }
 
 }

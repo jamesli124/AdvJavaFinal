@@ -39,21 +39,7 @@ public class GameObject implements Renderable
         this.width = w;
         this.img = new Image(imgLoc, height, width, false, false);
     }
-    /**
-     * Class constructor that bases the dimensions of the object based on the Image dimensions.
-     *
-     * @param x     horizontal location
-     * @param y     vertical location
-     * @param img   image to be displayed.
-    */
-    public GameObject(double x, double y, Image img)
-    {
-        this.posX = x;
-        this.posY = y;
-        this.height = img.getHeight();
-        this.width = img.getWidth();
-        this.img = img;
-    }
+
     /**
      * Draws this object's image on the canvas.
      *
@@ -70,7 +56,7 @@ public class GameObject implements Renderable
     */
     public Rectangle2D getBoundary()
     {
-        return new Rectangle2D(posX, posY, width, height);
+        return new Rectangle2D(posX, posY, height, width);
     }
 
     /**
@@ -83,7 +69,7 @@ public class GameObject implements Renderable
     {
         if (this.getBoundary().intersects(that.getBoundary()))
         {
-            System.out.printf("%s intersects %s \n", this.getBoundary(), that.getBoundary());
+            //System.out.printf("%s intersects %s \n", this.getBoundary(), that.getBoundary());
             return true;
         }
         return false;
@@ -176,11 +162,28 @@ public class GameObject implements Renderable
         return new Point2D(this.posX + this.width, this.posY + this.height);
     }
 
+    public double getMaxX()
+    {
+        return getBoundary().getMaxX();
+    }
+    public double getMinX()
+    {
+        return getBoundary().getMinX();
+    }
+    public double getMaxY()
+    {
+        return getBoundary().getMaxY();
+    }
+    public double getMinY()
+    {
+        return getBoundary().getMinY();
+    }
     /**
      * The main method to test this class.
      *
      * @param args  String array of command line arguments
      */
+
     public static void main(String[] args)
     {
         System.out.println("Running tests for GameObject!");

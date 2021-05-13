@@ -179,7 +179,7 @@ public class Menu extends Application
      */
     class GameClock extends AnimationTimer
     {
-        private long lastNanoTime = System.currentTimeMillis() * 1000;
+        private long lastNanoTime = 0;
         /*
         Runs every time frame is loaded in JavaFX program.
          */
@@ -187,6 +187,12 @@ public class Menu extends Application
         public void handle(long currentNanoTime)
         {
             // calculate time since last update.
+            // if this is the first frame, skip it
+            if(lastNanoTime < 1)
+            {
+                lastNanoTime = currentNanoTime;
+                return;
+            }
             double elapsedTime = (currentNanoTime - lastNanoTime) / 1000000000.0;
             lastNanoTime = currentNanoTime;
 
