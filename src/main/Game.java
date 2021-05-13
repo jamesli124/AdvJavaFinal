@@ -4,9 +4,12 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Game {
@@ -33,7 +36,9 @@ public class Game {
     public void readLevelFromFile(String levelString)
     {
         objects = new ArrayList<GameObject>();
-        try (BufferedReader br = Files.newBufferedReader(Path.of(levelString)))
+        String currentPath = Paths.get("").toAbsolutePath().toString();
+        System.out.println(currentPath.toString());
+        try (BufferedReader br = Files.newBufferedReader(Path.of(currentPath + "/src/resources/levels/" + levelString)))
         {
             String line = "";
             while((line = br.readLine()) != null)
