@@ -154,7 +154,6 @@ public class Game {
 
         // checking if player has fallen through the map
         if (player.getMaxY() > 1000) {
-            //TODO: implement falling off of the world
             readLevelFromFile(lastLevelString);
         }
     }

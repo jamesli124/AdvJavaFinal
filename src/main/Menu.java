@@ -163,7 +163,12 @@ public class Menu extends Application
     {
         BorderPane bpGame = new BorderPane();
 
+        Button pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
+        //TODO: pauseButton functionality, stop button from screwing up controls
+
+        bpGame.setTop(pauseButton);
         bpGame.setCenter(gameScreen);
+
 
         Scene gameScene = new Scene(bpGame);
 
@@ -182,6 +187,28 @@ public class Menu extends Application
                 });
 
         gameScene.setOnKeyReleased(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        input.remove( code );
+                    }
+                });
+
+        // same EventHandlers as before because jfx is being stupid and thinks the button needs to take all key presses
+        pauseButton.setOnKeyPressed(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        if ( !input.contains(code) )
+                            input.add( code );
+                    }
+                });
+
+        pauseButton.setOnKeyReleased(
                 new EventHandler<KeyEvent>()
                 {
                     public void handle(KeyEvent e)
