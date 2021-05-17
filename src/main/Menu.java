@@ -38,10 +38,16 @@ public class Menu extends Application
     private Game game;
     private GraphicsContext gameGC;
     private ArrayList<String> input;
+    private Button pauseButton;
+    private boolean paused;
+    GameClock gameClock;
     public Menu()
     {
         gameScreen = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
         gameGC = gameScreen.getGraphicsContext2D();
+        // initialize game clock
+        gameClock = new GameClock();
+        paused = false;
     }
     @Override
     public void init()
@@ -142,12 +148,14 @@ public class Menu extends Application
      */
     private void startGame(Stage primary)
     {
+        // unpause
+        paused = false;
         // Initialize game object
         game = new Game();
         // set scene to return value of makeGameScene()
         primary.setScene(makeGameScene());
         // Initialize game clock
-        GameClock gameClock = new GameClock();
+        //gameClock = new GameClock();
         // Read in level file
         game.readLevelFromFile("level1.level");
         gameClock.start();
@@ -163,8 +171,21 @@ public class Menu extends Application
     {
         BorderPane bpGame = new BorderPane();
 
-        Button pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
-        //TODO: pauseButton functionality, stop button from screwing up controls
+        // pause button that pauses game when pressed
+        pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
+        pauseButton.setOnAction(e ->
+        {
+            if (paused)
+            {
+                gameClock.start();
+                paused = false;
+            } else {
+                gameClock.stop();
+                paused = true;
+            }
+        });
+        //FIXME: pausing doesn't stop the dt from being huge
+        //TODO: spacebar pausing, GUI indication that the game is paused
 
         bpGame.setTop(pauseButton);
         bpGame.setCenter(gameScreen);
