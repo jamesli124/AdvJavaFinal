@@ -25,6 +25,7 @@ public class Game {
     public double CAMERA_HEIGHT = 400;
     public double GRAVITY = 300;
     private Player player;
+    private String lastLevelString;
 
     public Game()
     {
@@ -36,7 +37,9 @@ public class Game {
 
     public void readLevelFromFile(String levelString)
     {
+        lastLevelString = levelString;
         objects = new ArrayList<GameObject>();
+        sprites = new ArrayList<>();
         String currentPath = Paths.get("").toAbsolutePath().toString();
         System.out.println(currentPath.toString());
         try (BufferedReader br = Files.newBufferedReader(Path.of(currentPath + "/src/resources/levels/" + levelString)))
@@ -125,20 +128,34 @@ public class Game {
         return renderList;
 
     }
+
+    /**
+     * updating sprites for each time step
+     *
+     * @param deltat change in time
+     */
     public void updateSprites(double deltat)
     {
         for(Sprite sprite : sprites)
         {
             for(GameObject obj : objects)
             {
+                // collision detection
                 if(sprite != obj) {
                     if (sprite.intersects(obj)) {
                         sprite.doCollision(obj);
                     }
                 }
+
             }
             sprite.updatePos(deltat);
             sprite.updateVelocity(0, GRAVITY, deltat);
+        }
+
+        // checking if player has fallen through the map
+        if (player.getMaxY() > 1000) {
+            //TODO: implement falling off of the world
+            readLevelFromFile(lastLevelString);
         }
     }
     /*
