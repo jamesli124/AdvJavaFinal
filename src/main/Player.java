@@ -4,8 +4,8 @@ import javafx.scene.image.Image;
 
 public class Player extends Sprite{
 
-    private double JUMP_SPEED = -80;
-    private double WALK_SPEED = 60;
+    private double JUMP_SPEED = -200;
+    private double WALK_SPEED = 120;
 
     public Player(double x, double y, double h, double w, String imgString)
     {

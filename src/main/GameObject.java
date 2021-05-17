@@ -45,9 +45,9 @@ public class GameObject implements Renderable
      *
      * @param pen   pen for the canvas to be drawn on.
     */
-    public void render(GraphicsContext pen)
+    public void render(GraphicsContext pen, double cameraX)
     {
-        pen.drawImage(img, posX, posY);
+        pen.drawImage(img, posX - cameraX, posY);
     }
     /**
      * Returns a boundary object. Used for determining intersection on canvas.
@@ -120,6 +120,11 @@ public class GameObject implements Renderable
     {
         this.setX(x);
         this.setY(y);
+    }
+
+    public double getX()
+    {
+        return posX;
     }
 
     /**

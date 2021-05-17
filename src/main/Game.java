@@ -20,9 +20,10 @@ public class Game {
     private ArrayList<Sprite> sprites;
     private double cameraX;
     private double cameraY;
+    public double CAMERA_OFFSET = 200; // Amount of pixels between player and left edge of screen
     public double CAMERA_WIDTH = 600;
     public double CAMERA_HEIGHT = 400;
-    public double GRAVITY = 40;
+    public double GRAVITY = 300;
     private Player player;
 
     public Game()
@@ -92,9 +93,15 @@ public class Game {
     {
         cameraX = x;
     }
+
     public void setCameraY(double y)
     {
         cameraY = y;
+    }
+    public double getCameraX()
+    {
+        cameraX = player.getX() - CAMERA_OFFSET;
+        return cameraX;
     }
     public Rectangle2D getCameraRectangle()
     {

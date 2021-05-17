@@ -221,12 +221,12 @@ public class Menu extends Application
             game.updateSprites(elapsedTime);
 
             // Clear screen
-            gameGC.clearRect(0, 0, SCREEN_HEIGHT, SCREEN_WIDTH);
+            gameGC.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
             // Render all objects in the camera frame
             for(Renderable item : game.getRenderList())
             {
-                item.render(gameGC);
+                item.render(gameGC, game.getCameraX());
             }
 
         }
