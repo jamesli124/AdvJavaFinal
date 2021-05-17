@@ -41,7 +41,6 @@ public class Menu extends Application
     public Menu()
     {
         gameScreen = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
-        game = new Game();
         gameGC = gameScreen.getGraphicsContext2D();
     }
     @Override
@@ -95,7 +94,9 @@ public class Menu extends Application
       address.setStyle("-fx-background-color: black");
       */
       address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
+      // Initialize buttons
       Button play = new Button("Play");
+      // Play button calls method startGame()
       play.setOnAction(e -> startGame(primary));
       Button options = new Button("Options");
       Button complaints = new Button("Complaints?");
@@ -104,6 +105,7 @@ public class Menu extends Application
         bpMain.setCenter(address);
         bpMain.setLeft(back);
       });
+      // Quit button
       Button quit = new Button("Quit");
       quit.setOnAction(e -> Platform.exit() );
       VBox menuItems = new VBox();
@@ -133,13 +135,30 @@ public class Menu extends Application
     {
 
     }
+
+    /**
+     * Sets scene to gameScene, starts gameClock, reads in a level
+     * @param primary The main stage needing to be set
+     */
     private void startGame(Stage primary)
     {
+        // Initialize game object
+        game = new Game();
+        // set scene to return value of makeGameScene()
         primary.setScene(makeGameScene());
+        // Initialize game clock
         GameClock gameClock = new GameClock();
+        // Read in level file
         game.readLevelFromFile("level1.level");
         gameClock.start();
     }
+
+    /**
+     * Builds the gameScene, which is a Canvas housed in a BorderPane.
+     * Also defines input handling for the scene: inputs recorded to
+     * ArrayList input, which holds all keys currently pressed by player
+     * @return Scene gameScene that displays game graphics
+     */
     private Scene makeGameScene()
     {
         BorderPane bpGame = new BorderPane();
@@ -193,17 +212,18 @@ public class Menu extends Application
                 lastNanoTime = currentNanoTime;
                 return;
             }
+            // Calculate elapsed time since last frame update
             double elapsedTime = (currentNanoTime - lastNanoTime) / 1000000000.0;
             lastNanoTime = currentNanoTime;
 
             // Pass input to Game.java and let it update game stuff
-
-            // Game logic
             game.handleKeyboardInput(input);
             game.updateSprites(elapsedTime);
 
-            // Render all images
+            // Clear screen
             gameGC.clearRect(0, 0, SCREEN_HEIGHT, SCREEN_WIDTH);
+
+            // Render all objects in the camera frame
             for(Renderable item : game.getRenderList())
             {
                 item.render(gameGC);

@@ -162,18 +162,34 @@ public class GameObject implements Renderable
         return new Point2D(this.posX + this.width, this.posY + this.height);
     }
 
+    /**
+     * Returns the max X value of the bounding rectangle
+     * @return Double value representing maximum X coordinate
+     */
     public double getMaxX()
     {
         return getBoundary().getMaxX();
     }
+    /**
+     * Returns the min X value of the bounding rectangle
+     * @return Double value representing minimum X coordinate
+     */
     public double getMinX()
     {
         return getBoundary().getMinX();
     }
+    /**
+     * Returns the max Y value of the bounding rectangle
+     * @return Double value representing maximum Y coordinate
+     */
     public double getMaxY()
     {
         return getBoundary().getMaxY();
     }
+    /**
+     * Returns the min Y value of the bounding rectangle
+     * @return Double value representing minimum Y coordinate
+     */
     public double getMinY()
     {
         return getBoundary().getMinY();
