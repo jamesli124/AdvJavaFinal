@@ -92,8 +92,8 @@ public class Game {
       String currentPath = Paths.get("").toAbsolutePath().toString();
       System.out.println(currentPath.toString());
       Path outPath = Path.of("latest.level");
-      String xPos = Double.toString(player.getX());
-      String yPos = Double.toString(player.getY());
+      String xPos = player.getX().toString();
+      String yPos = player.getY().toString();
       try (BufferedReader br = Files.newBufferedReader(Path.of(currentPath + "/src/resources/levels/" + lastLevelString)))
       {
           String line = "";
@@ -103,7 +103,7 @@ public class Game {
             bw.write("Player " + xPos + " " + yPos + " 50 50 grass \n");
             while((line = br.readLine()) != null)
             {
-              bw.write(line + "\n");
+              bw.write(line + "\n")
             }
           }
           catch (IOException ioe) {

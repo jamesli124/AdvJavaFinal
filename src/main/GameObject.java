@@ -127,11 +127,6 @@ public class GameObject implements Renderable
         return posX;
     }
 
-    public double getY()
-    {
-        return posY;
-    }
-
     /**
      * Returns location of top right corner
      *
