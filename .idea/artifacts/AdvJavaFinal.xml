@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="AdvJavaFinal">
+    <output-path>$PROJECT_DIR$/out/artifacts/AdvJavaFinal</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="main.Menu" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Morrison's Playground" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="AdvJavaFinal.jar">
+        <element id="module-output" name="AdvJavaFinal" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -92,18 +92,19 @@ public class Game {
       String currentPath = Paths.get("").toAbsolutePath().toString();
       System.out.println(currentPath.toString());
       Path outPath = Path.of("latest.level");
-      String xPos = player.getX().toString();
-      String yPos = player.getY().toString();
+      String xPos = "" + player.getX();
+      String yPos = "" + player.getY();
       try (BufferedReader br = Files.newBufferedReader(Path.of(currentPath + "/src/resources/levels/" + lastLevelString)))
       {
           String line = "";
           br.readLine();
-          try (BufferedWriter bw = Files.newBufferedWriter(outPath))
+          try (BufferedWriter bw = Files.newBufferedWriter(Path.of(currentPath + "/src/resources/levels/latest.level")))
           {
             bw.write("Player " + xPos + " " + yPos + " 50 50 grass \n");
             while((line = br.readLine()) != null)
             {
-              bw.write(line + "\n")
+              System.out.printf("Adding %s to file! \n", line);
+              bw.write(line + "\n");
             }
           }
           catch (IOException ioe) {
@@ -197,15 +198,15 @@ public class Game {
     {
         // Set x velocity to 0, but leave y velocity untouched.
         player.setVelocity(0, player.getVelocity()[1]);
-        if(input.contains("UP") && isOnGround(player))
+        if(input.contains("W") && isOnGround(player))
         {
             player.jump();
         }
-        if(input.contains("RIGHT"))
+        if(input.contains("D"))
         {
             player.moveRight();
         }
-        if(input.contains("LEFT"))
+        if(input.contains("A"))
         {
             player.moveLeft();
         }
