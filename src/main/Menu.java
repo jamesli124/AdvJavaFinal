@@ -62,7 +62,7 @@ public class Menu extends Application
       Rectangle2D screenDimensions = Screen.getPrimary().getVisualBounds();
       double screenWidth = screenDimensions.getWidth();
       double screenHeight = screenDimensions.getHeight();
-      Image splashImage = new Image("https://imgs.xkcd.com/comics/excel_lambda_2x.png"); //"https://utility0.ncssm.edu/~morrison/images/samGetsIt.jpeg"
+      Image splashImage = new Image("https://utility0.ncssm.edu/~morrison/images/samGetsIt.jpeg"); //"https://utility0.ncssm.edu/~morrison/images/samGetsIt.jpeg"
       ImageView iv1 = new ImageView();
       iv1.setImage(splashImage);
       if (iv1.getImage().getWidth() > screenWidth) {

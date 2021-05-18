@@ -2,3 +2,5 @@ Player 100 200 50 50 grass
 GameObject 200 0 50 100 grass
 GameObject 400 200 100 100 grass
 GameObject 0 390 6000 10 grass
+GameObject 600 350 50 50 grass
+GameObject 700 340 50 50 grass
