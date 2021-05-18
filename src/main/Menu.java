@@ -42,7 +42,10 @@ public class Menu extends Application
     private ArrayList<String> input;
     private Button pauseButton;
     private boolean paused;
-    GameClock gameClock;
+    private GameClock gameClock;
+    private Scene mainMenu;
+    private Stage primaryStage;
+
     public Menu()
     {
         gameScreen = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -59,77 +62,78 @@ public class Menu extends Application
     @Override
     public void start(Stage primary)
     {
-      Rectangle2D screenDimensions = Screen.getPrimary().getVisualBounds();
-      double screenWidth = screenDimensions.getWidth();
-      double screenHeight = screenDimensions.getHeight();
-      Image splashImage = new Image("https://imgs.xkcd.com/comics/excel_lambda_2x.png"); //"https://utility0.ncssm.edu/~morrison/images/samGetsIt.jpeg"
-      ImageView iv1 = new ImageView();
-      iv1.setImage(splashImage);
-      if (iv1.getImage().getWidth() > screenWidth) {
-        iv1.setFitWidth(screenWidth);
-        iv1.setPreserveRatio(true);
-        iv1.setSmooth(true);
-        iv1.setCache(true);
-      }
+        primaryStage = primary;
+        Rectangle2D screenDimensions = Screen.getPrimary().getVisualBounds();
+        double screenWidth = screenDimensions.getWidth();
+        double screenHeight = screenDimensions.getHeight();
+        Image splashImage = new Image("https://imgs.xkcd.com/comics/excel_lambda_2x.png"); //"https://utility0.ncssm.edu/~morrison/images/samGetsIt.jpeg"
+        ImageView iv1 = new ImageView();
+        iv1.setImage(splashImage);
+        if (iv1.getImage().getWidth() > screenWidth) {
+            iv1.setFitWidth(screenWidth);
+            iv1.setPreserveRatio(true);
+            iv1.setSmooth(true);
+            iv1.setCache(true);
+        }
 
-      BorderPane bpSplash = new BorderPane();
-      bpSplash.setCenter(iv1);
-      bpSplash.setStyle("-fx-background-color: black");
-      Scene splash = new Scene(bpSplash, screenWidth, screenHeight);
-      primary.setWidth(screenDimensions.getWidth());
-      primary.setHeight(screenDimensions.getHeight());
+        BorderPane bpSplash = new BorderPane();
+        bpSplash.setCenter(iv1);
+        bpSplash.setStyle("-fx-background-color: black");
+        Scene splash = new Scene(bpSplash, screenWidth, screenHeight);
+        primary.setWidth(screenDimensions.getWidth());
+        primary.setHeight(screenDimensions.getHeight());
 
 
-      /**
-      try {
-        Thread.sleep(7500);
-      }
-      catch(InterruptedException ex)
-      {
-        Thread.currentThread().interrupt();
-      }
-      */
+        /**
+        try {
+            Thread.sleep(7500);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+        */
 
-      BorderPane bpMain = new BorderPane();
-      bpMain.setPrefSize(screenWidth / 4, screenHeight / 4);
-      TextField address = new TextField();
-      address.setFont(new Font ("Comic Sans MS Regular", 24));
-      address.setEditable(false);
-      address.setPrefWidth(screenWidth * .6);
-      /**
-      address.setStyle("-fx-text-fill: white");
-      address.setStyle("-fx-opacity: 1");
-      address.setStyle("-fx-background-color: black");
-      */
-      address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
-      // Initialize buttons
-      Button play = new Button("Play"); //Will load latest.level
-      // Play button calls method startGame()
-      play.setOnAction(e -> startGame(primary, "latest.level"));
-      Button select = new Button("Level Select"); //opens level select menu
+        BorderPane bpMain = new BorderPane();
+        bpMain.setPrefSize(screenWidth / 4, screenHeight / 4);
+        TextField address = new TextField();
+        address.setFont(new Font ("Comic Sans MS Regular", 24));
+        address.setEditable(false);
+        address.setPrefWidth(screenWidth * .6);
+        /**
+        address.setStyle("-fx-text-fill: white");
+        address.setStyle("-fx-opacity: 1");
+        address.setStyle("-fx-background-color: black");
+        */
+        address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
+        // Initialize buttons
+        Button play = new Button("Play"); //Will load latest.level
+        // Play button calls method startGame()
+        play.setOnAction(e -> startGame(primary, "latest.level"));
+        Button select = new Button("Level Select"); //opens level select menu
 
-      Button options = new Button("Options");
-      Button complaints = new Button("Complaints?");
-      Button back = new Button("<-- Back");
-      complaints.setOnAction(e -> {
-        bpMain.setCenter(address);
-        bpMain.setLeft(back);
-      });
-      // Quit button
-      Button quit = new Button("Quit");
-      quit.setOnAction(e -> Platform.exit() );
-      VBox menuItems = new VBox();
-      menuItems.getChildren().addAll(play, select, options, complaints, quit);
+        Button options = new Button("Options");
+        Button complaints = new Button("Complaints?");
+        Button back = new Button("<-- Back");
+        complaints.setOnAction(e -> {
+            bpMain.setCenter(address);
+            bpMain.setLeft(back);
+        });
+        // Quit button
+        Button quit = new Button("Quit");
+        quit.setOnAction(e -> Platform.exit() );
+        VBox menuItems = new VBox();
+        menuItems.getChildren().addAll(play, select, options, complaints, quit);
 
-      back.setOnAction(e -> {
-        bpMain.setLeft(null);
+        back.setOnAction(e -> {
+            bpMain.setLeft(null);
+            bpMain.setCenter(menuItems);
+        });
+
         bpMain.setCenter(menuItems);
-      });
+        //bpMain.setStyle("-fx-background-color: black");
 
-      bpMain.setCenter(menuItems);
-      //bpMain.setStyle("-fx-background-color: black");
-
-      Scene mainMenu = new Scene(bpMain, screenWidth, screenHeight);
+      mainMenu = new Scene(bpMain, screenWidth, screenHeight);
       iv1.setOnMouseClicked(e -> {
         primary.setScene(mainMenu);
       });
@@ -139,11 +143,11 @@ public class Menu extends Application
         primary.setScene(makeSelectScene(primary, mainMenu));
     });
 
-      primary.setScene(splash);
-      primary.setWidth(screenDimensions.getWidth());
-      primary.setHeight(screenDimensions.getHeight());
-      primary.sizeToScene();
-      primary.show();
+        primary.setScene(splash);
+        primary.setWidth(screenDimensions.getWidth());
+        primary.setHeight(screenDimensions.getHeight());
+        primary.sizeToScene();
+        primary.show();
     }
 
     @Override
@@ -182,12 +186,14 @@ public class Menu extends Application
        Button backButton = new Button("Back");
        backButton.setOnAction(e -> primary.setScene(mainMenu));
 
-       levelButton lvlOne = new levelButton(primary, "Level 1", "level1.level");
-       levelButton lvlTwo = new levelButton(primary, "Level 2", "level2.level");
-       levelButton lvlThree = new levelButton(primary, "Level 3", "level3.level");
+       LevelButton savedLevel = new LevelButton("Saved Level", "latest.level");
+       LevelButton lvlOne = new LevelButton("Level 1", "level1.level");
+       LevelButton lvlTwo = new LevelButton("Level 2", "level2.level");
+       LevelButton lvlThree = new LevelButton("Level 3", "level3.level");
+
 
        VBox levelMenu = new VBox();
-       levelMenu.getChildren().addAll(lvlOne, lvlTwo, lvlThree);
+       levelMenu.getChildren().addAll(savedLevel, lvlOne, lvlTwo, lvlThree);
 
        bpSelect.setTop(backButton);
        bpSelect.setCenter(levelMenu);
@@ -208,13 +214,23 @@ public class Menu extends Application
 
         HBox topMenu = new HBox();
 
+        // button that pauses game clock
         Button pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
+
+        // button that returns to mainMenu
+        Button returnButton = new Button(Character.toString((char) Integer.parseInt("2190", 16)));
+        returnButton.setOnAction(e ->
+        {
+            primaryStage.setScene(mainMenu);
+        });
+
+        // button that saves level
         Button saveButton = new Button("Save");
         saveButton.setOnAction( e ->
         {
           game.saveLevel();
         });
-        topMenu.getChildren().addAll(pauseButton);
+        topMenu.getChildren().addAll(pauseButton, returnButton, saveButton);
 
         // pause button that pauses game when pressed
         pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
@@ -287,6 +303,50 @@ public class Menu extends Application
                     }
                 });
 
+        returnButton.setOnKeyPressed(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        if ( !input.contains(code) )
+                            input.add( code );
+                    }
+                });
+
+        returnButton.setOnKeyReleased(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        input.remove( code );
+
+                    }
+                });
+
+        saveButton.setOnKeyPressed(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        if ( !input.contains(code) )
+                            input.add( code );
+                    }
+                });
+
+        saveButton.setOnKeyReleased(
+                new EventHandler<KeyEvent>()
+                {
+                    public void handle(KeyEvent e)
+                    {
+                        String code = e.getCode().toString();
+                        input.remove( code );
+
+                    }
+                });
+
         return gameScene;
     }
     /*
@@ -329,16 +389,16 @@ public class Menu extends Application
 
 
     }
-    class levelButton extends Button
+    class LevelButton extends Button
     {
         private String levelString;
 
-        levelButton(Stage primary, String text, String levelString)//this could also be handled with an enum
+        LevelButton(String text, String levelString)//this could also be handled with an enum
         {
             super(text);
             this.levelString = levelString;
             setOnAction (e -> {
-                startGame(primary, levelString);
+                startGame(primaryStage, levelString);
             });
         }
     }
