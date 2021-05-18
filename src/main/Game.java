@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -85,6 +86,34 @@ public class Game {
 
 
         }
+    }
+    public void saveLevel()
+    {
+      String currentPath = Paths.get("").toAbsolutePath().toString();
+      System.out.println(currentPath.toString());
+      Path outPath = Path.of("latest.level");
+      String xPos = player.getX().toString();
+      String yPos = player.getY().toString();
+      try (BufferedReader br = Files.newBufferedReader(Path.of(currentPath + "/src/resources/levels/" + lastLevelString)))
+      {
+          String line = "";
+          br.readLine();
+          try (BufferedWriter bw = Files.newBufferedWriter(outPath))
+          {
+            bw.write("Player " + xPos + " " + yPos + " 50 50 grass \n");
+            while((line = br.readLine()) != null)
+            {
+              bw.write(line + "\n")
+            }
+          }
+          catch (IOException ioe) {
+            ioe.printStackTrace();
+          }
+      }
+      catch(IOException ex)
+      {
+          ex.printStackTrace();
+      }
     }
 
     private String getImageStringOf(String s)

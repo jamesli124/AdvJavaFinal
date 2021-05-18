@@ -29,6 +29,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
 import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 
 public class Menu extends Application
 {
@@ -101,9 +103,13 @@ public class Menu extends Application
       */
       address.setText("If you have any complaints, please mail them to 612 CONCORDIA CT CHAPEL HILL, NC 27514");
       // Initialize buttons
-      Button play = new Button("Play");
+      Button play = new Button("Play"); //Will load latest.level
       // Play button calls method startGame()
-      play.setOnAction(e -> startGame(primary));
+      play.setOnAction(e -> startGame(primary, "latest.level"));
+      Button select = new Button("Level Select"); //opens level select menu
+      select.setOnAction(e -> {
+        primary.setScene(makeSelectScene());
+      })
       Button options = new Button("Options");
       Button complaints = new Button("Complaints?");
       Button back = new Button("<-- Back");
@@ -115,7 +121,7 @@ public class Menu extends Application
       Button quit = new Button("Quit");
       quit.setOnAction(e -> Platform.exit() );
       VBox menuItems = new VBox();
-      menuItems.getChildren().addAll(play, options, complaints, quit);
+      menuItems.getChildren().addAll(play, select, options, complaints, quit);
 
       back.setOnAction(e -> {
         bpMain.setLeft(null);
@@ -146,7 +152,7 @@ public class Menu extends Application
      * Sets scene to gameScene, starts gameClock, reads in a level
      * @param primary The main stage needing to be set
      */
-    private void startGame(Stage primary)
+    private void startGame(Stage primary, String levelString)
     {
         // unpause
         paused = false;
@@ -157,10 +163,34 @@ public class Menu extends Application
         // Initialize game clock
         //gameClock = new GameClock();
         // Read in level file
-        game.readLevelFromFile("level1.level");
+        game.readLevelFromFile(levelString);
         gameClock.start();
     }
+    /**
+     * Builds the levelSelect menu.
+     *
+     * @return Scene makeSelectScene that displays the level options.
+     */
+     private Scene makeSelectScene()
+     {
+       BorderPane bpSelect = new BorderPane();
 
+       Button backButton = new Button("Back");
+       backButton.setOnAction(e -> primary.setScene(mainMenu));
+
+       levelButton lvlOne = new levelButton("Level 1", "level1.level");
+       levelButton lvlTwo = new levelButton("Level 2", "level2.level");
+       levelButton lvlThree = new levelButton("Level 3", "level3.level");
+
+       VBox levelMenu = new VBox();
+       levelMenu.getChildren().addAll(lvlOne, lvlTwo, lvlThree);
+
+       bpSelect.setTop(backButton);
+
+       Scene levelSelect = new Scene(bpSelect);
+
+       return levelSelect;
+     }
     /**
      * Builds the gameScene, which is a Canvas housed in a BorderPane.
      * Also defines input handling for the scene: inputs recorded to
@@ -170,6 +200,17 @@ public class Menu extends Application
     private Scene makeGameScene()
     {
         BorderPane bpGame = new BorderPane();
+
+        HBox topMenu = new HBox();
+
+        Button pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
+        Button saveButton = new Button("Save");
+        saveButton.setOnAction( e ->
+        {
+          game.saveLevel();
+        });
+        //TODO: pauseButton functionality, stop button from screwing up controls
+        topMenu.getChildren().addAll(pauseButton, saveMenu);
 
         // pause button that pauses game when pressed
         pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
@@ -188,7 +229,7 @@ public class Menu extends Application
         });
         //TODO: spacebar pausing, GUI indication that the game is paused
 
-        bpGame.setTop(pauseButton);
+        bpGame.setTop(topMenu);
         bpGame.setCenter(gameScreen);
 
 
@@ -284,6 +325,15 @@ public class Menu extends Application
 
 
     }
+    class levelButton extends Button
+    {
+      levelButton(String text, String levelString)//this could also be handled with an enum
+      {
+        super(text);
+        this.levelString = levelString;
+        setOnAction (e -> {
+          startGame(primary, levelString);
+        });
+      }
+    }
 }
-
-
