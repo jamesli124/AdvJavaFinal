@@ -179,12 +179,13 @@ public class Menu extends Application
             {
                 gameClock.start();
                 paused = false;
+                // Will hard reset game clock so that elapsedTime is not equal to the pause time
+                gameClock.lastNanoTime = 0;
             } else {
                 gameClock.stop();
                 paused = true;
             }
         });
-        //FIXME: pausing doesn't stop the dt from being huge
         //TODO: spacebar pausing, GUI indication that the game is paused
 
         bpGame.setTop(pauseButton);
@@ -214,6 +215,7 @@ public class Menu extends Application
                     {
                         String code = e.getCode().toString();
                         input.remove( code );
+
                     }
                 });
 
@@ -236,6 +238,7 @@ public class Menu extends Application
                     {
                         String code = e.getCode().toString();
                         input.remove( code );
+
                     }
                 });
 
@@ -246,7 +249,7 @@ public class Menu extends Application
      */
     class GameClock extends AnimationTimer
     {
-        private long lastNanoTime = 0;
+        public long lastNanoTime = 0;
         /*
         Runs every time frame is loaded in JavaFX program.
          */
