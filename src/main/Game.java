@@ -98,7 +98,7 @@ public class Game {
       {
           String line = "";
           br.readLine();
-          try (BufferedWriter bw = Files.newBufferedWriter(outPath))
+          try ( BufferedWriter bw = Files.newBufferedReader(outPath));
           {
             bw.write("Player " + xPos + " " + yPos + " 50 50 grass \n");
             while((line = br.readLine()) != null)
