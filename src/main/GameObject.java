@@ -137,10 +137,6 @@ public class GameObject implements Renderable
      *
      * @return      Point2D containing location of top right corner of GameObject
      */
-    public double getY()
-    {
-        return posY;
-    }
     public Point2D getTopRight()
     {
         return new Point2D(this.posX + this.width, this.posY);
