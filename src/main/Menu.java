@@ -101,9 +101,7 @@ public class Menu extends Application
       // Play button calls method startGame()
       play.setOnAction(e -> startGame(primary, "latest.level"));
       Button select = new Button("Level Select"); //opens level select menu
-      select.setOnAction(e -> {
-        primary.setScene(makeSelectScene());
-      })
+
       Button options = new Button("Options");
       Button complaints = new Button("Complaints?");
       Button back = new Button("<-- Back");
@@ -129,6 +127,12 @@ public class Menu extends Application
       iv1.setOnMouseClicked(e -> {
         primary.setScene(mainMenu);
       });
+
+      // select button functionality
+    select.setOnAction(e -> {
+        primary.setScene(makeSelectScene(primary, mainMenu));
+    });
+
       primary.setScene(splash);
       primary.setWidth(screenDimensions.getWidth());
       primary.setHeight(screenDimensions.getHeight());
@@ -163,21 +167,22 @@ public class Menu extends Application
      *
      * @return Scene makeSelectScene that displays the level options.
      */
-     private Scene makeSelectScene()
+     private Scene makeSelectScene(Stage primary, Scene mainMenu)
      {
        BorderPane bpSelect = new BorderPane();
 
        Button backButton = new Button("Back");
        backButton.setOnAction(e -> primary.setScene(mainMenu));
 
-       levelButton lvlOne = new levelButton("Level 1", "level1.level");
-       levelButton lvlTwo = new levelButton("Level 2", "level2.level");
-       levelButton lvlThree = new levelButton("Level 3", "level3.level");
+       levelButton lvlOne = new levelButton(primary, "Level 1", "level1.level");
+       levelButton lvlTwo = new levelButton(primary, "Level 2", "level2.level");
+       levelButton lvlThree = new levelButton(primary, "Level 3", "level3.level");
 
        VBox levelMenu = new VBox();
        levelMenu.getChildren().addAll(lvlOne, lvlTwo, lvlThree);
 
        bpSelect.setTop(backButton);
+       bpSelect.setCenter(levelMenu);
 
        Scene levelSelect = new Scene(bpSelect);
 
@@ -201,8 +206,7 @@ public class Menu extends Application
         {
           game.saveLevel();
         });
-        //TODO: pauseButton functionality, stop button from screwing up controls
-        topMenu.getChildren().addAll(pauseButton, saveMenu);
+        topMenu.getChildren().addAll(pauseButton);
 
 
         bpGame.setTop(topMenu);
@@ -301,13 +305,15 @@ public class Menu extends Application
     }
     class levelButton extends Button
     {
-      levelButton(String text, String levelString)//this could also be handled with an enum
-      {
-        super(text);
-        this.levelString = levelString;
-        setOnAction (e -> {
-          startGame(primary, levelString);
-        });
-      }
+        private String levelString;
+
+        levelButton(Stage primary, String text, String levelString)//this could also be handled with an enum
+        {
+            super(text);
+            this.levelString = levelString;
+            setOnAction (e -> {
+                startGame(primary, levelString);
+            });
+        }
     }
 }
