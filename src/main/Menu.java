@@ -40,10 +40,16 @@ public class Menu extends Application
     private Game game;
     private GraphicsContext gameGC;
     private ArrayList<String> input;
+    private Button pauseButton;
+    private boolean paused;
+    GameClock gameClock;
     public Menu()
     {
         gameScreen = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
         gameGC = gameScreen.getGraphicsContext2D();
+        // initialize game clock
+        gameClock = new GameClock();
+        paused = false;
     }
     @Override
     public void init()
@@ -152,12 +158,14 @@ public class Menu extends Application
      */
     private void startGame(Stage primary, String levelString)
     {
+        // unpause
+        paused = false;
         // Initialize game object
         game = new Game();
         // set scene to return value of makeGameScene()
         primary.setScene(makeGameScene());
         // Initialize game clock
-        GameClock gameClock = new GameClock();
+        //gameClock = new GameClock();
         // Read in level file
         game.readLevelFromFile(levelString);
         gameClock.start();
@@ -208,6 +216,22 @@ public class Menu extends Application
         });
         topMenu.getChildren().addAll(pauseButton);
 
+        // pause button that pauses game when pressed
+        pauseButton = new Button(Character.toString((char) Integer.parseInt("23F8", 16)));
+        pauseButton.setOnAction(e ->
+        {
+            if (paused)
+            {
+                gameClock.start();
+                paused = false;
+                // Will hard reset game clock so that elapsedTime is not equal to the pause time
+                gameClock.lastNanoTime = 0;
+            } else {
+                gameClock.stop();
+                paused = true;
+            }
+        });
+        //TODO: spacebar pausing, GUI indication that the game is paused
 
         bpGame.setTop(topMenu);
         bpGame.setCenter(gameScreen);
@@ -236,6 +260,7 @@ public class Menu extends Application
                     {
                         String code = e.getCode().toString();
                         input.remove( code );
+
                     }
                 });
 
@@ -258,6 +283,7 @@ public class Menu extends Application
                     {
                         String code = e.getCode().toString();
                         input.remove( code );
+
                     }
                 });
 
@@ -268,7 +294,7 @@ public class Menu extends Application
      */
     class GameClock extends AnimationTimer
     {
-        private long lastNanoTime = 0;
+        public long lastNanoTime = 0;
         /*
         Runs every time frame is loaded in JavaFX program.
          */
